@@ -511,7 +511,7 @@
     },
     "join": "Join",
     "leave": "Leave",
-    "member_joined": "Joined",
+    "joined": "Joined",
     "left": "Left",
     "join_community": "Join community",
     "leave_community": "Leave community",
