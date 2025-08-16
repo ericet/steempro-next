@@ -542,7 +542,10 @@
     "filter": {
       "all": "All",
       "vote": "Vote",
-      "reply": "Reply"
+      "reply": "Reply",
+      "mention": "Mention",
+      "follow": "Follow",
+      "resteem":"Resteem"
     }
   },
   "chat": {
