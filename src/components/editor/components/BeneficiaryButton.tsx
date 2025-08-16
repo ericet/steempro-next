@@ -1,7 +1,7 @@
 import { Button } from "@heroui/button";
 import { Card, CardBody } from "@heroui/card";
 import { Input } from "@heroui/input";
-import { memo, useRef, useState } from "react";
+import { memo, useRef, useState, useEffect } from "react";
 import { useTranslation } from "@/utils/i18n";
 import { FaAt, FaBurn, FaMinus, FaPlus, FaUsersCog } from "react-icons/fa";
 import { MdAdd, MdDelete } from "react-icons/md";
@@ -29,12 +29,7 @@ interface Props {
 }
 
 const steemFavourites = [
-  { account: "null", weight: 500 },
-  {
-    account: "steem-drivers",
-    weight: 500,
-    color: "success",
-  },
+  { account: "null", weight: 500 }
 ];
 
 export default memo(function BeneficiaryButton(props: Props) {
@@ -54,6 +49,17 @@ export default memo(function BeneficiaryButton(props: Props) {
   const settings =
     useAppSelector((state) => state.settingsReducer.value) ?? getSettings();
   const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    const steemDriversExists = beneficiaries.some(bene => bene.account === "steem-drivers");
+    
+    if (!steemDriversExists && onSelectBeneficiary && !isComment) {
+      onSelectBeneficiary({
+        account: "steem-drivers",
+        weight: 100,
+      });
+    }
+  }, [beneficiaries, onSelectBeneficiary, isComment]);
 
   const uniqueFavEntries = [
     ...(favourites ?? []),
