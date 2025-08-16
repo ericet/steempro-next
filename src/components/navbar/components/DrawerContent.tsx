@@ -1,6 +1,6 @@
 import SLink from "@/components/ui/SLink";
 import ThemeSwitch from "@/components/ThemeSwitch";
-import { DiscordServerLink, GitHubLink } from "@/constants/AppConstants";
+import { GitHubLink } from "@/constants/AppConstants";
 import { Button } from "@heroui/button";
 import { Divider } from "@heroui/divider";
 import { useSession } from "next-auth/react";
@@ -111,13 +111,13 @@ function DrawerContent() {
       focusedIcon: <RiGithubFill size={iconSize} />,
       externalLink: true,
     },
-    {
-      title: t('sidebar.discord'),
-      href: DiscordServerLink,
-      unFocusedIcon: <RiDiscordLine size={iconSize} />,
-      focusedIcon: <RiDiscordFill size={iconSize} />,
-      externalLink: true,
-    },
+    // {
+    //   title: t('sidebar.discord'),
+    //   href: DiscordServerLink,
+    //   unFocusedIcon: <RiDiscordLine size={iconSize} />,
+    //   focusedIcon: <RiDiscordFill size={iconSize} />,
+    //   externalLink: true,
+    // },
     {
       title: t('sidebar.privacy_policy'),
       href: `/policy`,

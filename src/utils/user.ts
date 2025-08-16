@@ -32,7 +32,7 @@ export function getCredentials(password?: string): User | undefined {
       const privateKey = password
         ? decryptPrivateKey(
             credentials.key,
-            credentials.passwordless ? "steempro" : password
+            credentials.passwordless ? "steemcn" : password
           )
         : credentials.key;
 
@@ -115,7 +115,7 @@ export function updateMemoKey(key: string) {
     } as User);
     const isPasswordLess =
       credentials?.passwordless ||
-      ["keychain", "steempro"].includes(credentials.key);
+      ["keychain", "steemcn"].includes(credentials.key);
 
     addToAccounts(
       credentials.username,
@@ -276,7 +276,7 @@ export class PrivKey {
 
 export const checkPromotionText = (body: string): boolean => {
   if (!body) return false;
-  const regex = /posted using \[steempro/;
+  const regex = /posted using \[steemcn/;
   if (regex.test(body?.toLowerCase())) {
     return true;
   } else {
