@@ -14,8 +14,8 @@ export const AppStrings = {
   image_hostings: ["https://steemitimages.com"],
   chain_id: "0000000000000000000000000000000000000000000000000000000000000000",
   rpc_servers: [
-    "https://api.steemit.com",
     "https://api.steemyy.com",
+    "https://api.steemit.com",
     "https://rpc.amarbangla.net",
     "https://steemapi.boylikegirl.club",
     "https://api.steem-fanbase.com",

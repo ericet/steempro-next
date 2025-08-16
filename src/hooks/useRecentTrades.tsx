@@ -2,7 +2,7 @@ import parseAsset from "@/utils/helper/parse-asset";
 import { useQuery } from "@tanstack/react-query";
 import { useMemo } from "react";
 
-const CONDENSER_API = "https://api.steemit.com"; // Or your custom node
+const CONDENSER_API = "https://api.steemyy.com"; // Or your custom node
 
 interface RecentTrade {
   timestamp: string;
