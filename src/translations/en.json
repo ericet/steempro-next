@@ -549,7 +549,12 @@
     }
   },
   "chat": {
-    "memo_key_not_found": "Memo key not found"
+    "memo_key_not_found": "Memo key not found",
+    "title": "Chat",
+    "mark_as_seen": "Mark as seen",
+    "marked_as_seen": "Chat marked as seen",
+    "encrypted_message": "Encrypted message",
+    "you": "You:"
   },
   "proposals": {
     "title": "Steem Proposals",

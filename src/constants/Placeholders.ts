@@ -215,7 +215,7 @@ export const empty_settings = (): Setting => {
     lang: { code: "en", title: "English" },
     nsfw: "Always warn",
     feedStyle: "list",
-    rpc: "https://api.steemyy.com",
+    rpc: "https://api.steemit.com",
     theme: "system",
     readMore: true,
     voteOptions: {
