@@ -10,7 +10,7 @@ export const AppStrings = {
     "https://sds0.steemworld.org",
     "https://sds1.steemworld.org"
   ],
-  sds_base_url: "https://sds.steemworld.org",
+  sds_base_url: "https://sds1.steemworld.org",
   image_hostings: ["https://steemitimages.com"],
   chain_id: "0000000000000000000000000000000000000000000000000000000000000000",
   rpc_servers: [
