@@ -43,6 +43,7 @@ import Image from "next/image";
 import { Card } from "@heroui/card";
 import { Chip } from "@heroui/chip";
 import { useTranslation } from "@/utils/i18n";
+import SAvatar from "@/components/ui/SAvatar";
 
 interface Props {
   comment: Post | Feed;
@@ -261,29 +262,17 @@ export default function CommentHeader(props: Props) {
         className
       )}
     >
-      <User
-        classNames={{
-          description: "text-default-900/60 dark:text-gray-200 text-sm",
-          name: "text-default-800",
-          wrapper: "gap-1",
-        }}
-        name={
-          <div className="flex flex-row items-center gap-1">
-            {isSelf ? (
+      <div className="flex flex-row items-center gap-1">
+        <SAvatar size="sm" username={comment.author} />
+        <div className="flex flex-col gap-1">
+          <div className="flex flex-row items-center gap-1 text-sm">
+           
               <SLink
-                className=" hover:text-blue-500"
                 href={`/@${comment.author}`}
               >
                 {comment.author}
               </SLink>
-            ) : (
-              <SLink
-                className=" hover:text-blue-500"
-                href={`/@${comment.author}`}
-              >
-                {comment.author}
-              </SLink>
-            )}
+            
             <Reputation reputation={comment.author_reputation} />
             {!!comment.is_pinned && (
               <Chip
@@ -331,9 +320,7 @@ export default function CommentHeader(props: Props) {
               </Card>
             )}
           </div>
-        }
-        description={
-          <div className="flex flex-wrap items-center gap-x-2">
+          <div className="flex flex-wrap items-center gap-x-2 text-default-900/60 dark:text-gray-200 text-sm">
             <RoleTitleCard comment={comment} />
 
             <div className={twMerge(`flex items-center gap-1`)}>
@@ -364,16 +351,9 @@ export default function CommentHeader(props: Props) {
               )}
             </div>
           </div>
-        }
-        avatarProps={
-          {
-            className: twMerge(isReply ? "h-8 w-8" : "", "cursor-pointer "),
-            src: getResizedAvatar(comment.author),
-            as: SLink,
-            href: `/@${comment.author}`,
-          } as any
-        }
-      />
+        </div>
+      </div>
+
       {!hidden && !isReply && !compact && comment.depth === 0 && (
         <div className="absolute top-0 text-tiny right-0 items-center px-1">
           <Popover

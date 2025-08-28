@@ -24,7 +24,7 @@ function MarketStats() {
       <div className="space-y-4 sm:space-y-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {[...Array(4)].map((_, i) => (
-            <Card key={i} className="border border-gray-200/20 shadow-sm">
+            <Card key={i} className="border border-default-900/10 shadow-sm">
               <CardBody className="p-4">
                 <div className="animate-pulse space-y-2">
                   <div className="h-4 bg-gray-200 rounded w-20"></div>
@@ -57,7 +57,7 @@ function MarketStats() {
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-      <Card className="border border-gray-200/20 shadow-sm">
+      <Card className="border border-default-900/10 shadow-sm">
         <CardBody className="p-4">
           <div className="flex items-center justify-between">
             <div>
@@ -88,7 +88,7 @@ function MarketStats() {
         </CardBody>
       </Card>
 
-      <Card className="border border-gray-200/20 shadow-sm">
+      <Card className="border border-default-900/10 shadow-sm">
         <CardBody className="p-4">
           <div className="flex items-center justify-between">
             <div>
@@ -118,7 +118,7 @@ function MarketStats() {
         </CardBody>
       </Card>
 
-      <Card className="border border-gray-200/20 shadow-sm">
+      <Card className="border border-default-900/10 shadow-sm">
         <CardBody className="p-4">
           <div className="flex items-center justify-between">
             <div>
@@ -135,7 +135,7 @@ function MarketStats() {
         </CardBody>
       </Card>
 
-      <Card className=" border border-gray-200/20 shadow-sm">
+      <Card className=" border border-default-900/10 shadow-sm">
         <CardBody className="p-4">
           <div className="flex items-center justify-between">
             <div>

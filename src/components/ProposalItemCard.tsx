@@ -200,27 +200,30 @@ const ProposalItemCard = ({
                 {t("proposals.by")}
                 <SAvatar
                   username={proposal.creator}
-                  size="xxs"
+                  size="xs"
                   content={proposal.creator}
                 />
               </span>
-              <span className="inline">•</span>
-
-              <span className="flex flex-row gap-2">
-                {t("proposals.to")}
-                <SAvatar
-                  username={proposal.receiver}
-                  size="xxs"
-                  content={proposal.receiver}
-                />
-              </span>
+              {proposal.creator !== proposal.receiver && (
+                <>
+                  <span className="inline">•</span>
+                  <span className="flex flex-row gap-2">
+                  {t("proposals.to")}
+                    <SAvatar
+                      username={proposal.receiver}
+                      size="xs"
+                      content={proposal.receiver}
+                    />
+                  </span>
+                </>
+              )}
 
               <span className="inline">•</span>
               <SLink
-                className="hover:text-blue-500 font-semibold text-sm"
+                className="transition-colors hover:text-blue-500 font-semibold text-sm"
                 href={`/proposals/${proposal.id}`}
               >
-                <p className="text-default-500">{t("proposals.id").replace("{{id}}", proposal.id.toString())}</p>
+                <p>ID #{proposal.id}</p>
               </SLink>
             </div>
 

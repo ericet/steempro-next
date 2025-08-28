@@ -151,7 +151,7 @@ function MarketTrade(props: Props) {
   };
 
   return (
-    <Card className=" dark:bg-black/40 border border-gray-200/20">
+    <Card className=" dark:bg-black/40 border border-default-900/10">
       <CardHeader>
         <CardBody className="text-default-800 text-lg sm:text-xl">
           {t("market.trade_steem")}
@@ -207,9 +207,8 @@ function MarketTrade(props: Props) {
                 setPrice(marketPrice);
                 setLastEdited("price");
               }}
-              className="text-xs text-[#07d7a9] hover:text-[#06c49a]"
             >
-              {t("market.use_market_price")}
+               {t("market.use_market_price")}
             </Button>
           }
         />

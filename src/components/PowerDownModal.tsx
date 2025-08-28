@@ -118,7 +118,12 @@ const PowerDownModal = (props: Props): React.ReactNode => {
     <SModal
       isOpen={isOpen}
       onOpenChange={onOpenChange}
-      modalProps={{ isDismissable: false, hideCloseButton: true }}
+      modalProps={{
+        isDismissable: false,
+        hideCloseButton: true,
+        size: "2xl",
+        scrollBehavior: "inside",
+      }}
       title={() => (cancel ? "Cancel Power Down" : "" + "Power Down")}
       body={() => (
         <>
@@ -134,7 +139,7 @@ const PowerDownModal = (props: Props): React.ReactNode => {
               minValue={0}
               defaultValue={cancel ? 0 : 0.1}
               onChange={(value) => setAmount(String(value))}
-              className="max-w-md"
+              className="max-w-full"
               marks={[
                 {
                   value: availableBalance * 0.25,
@@ -162,7 +167,7 @@ const PowerDownModal = (props: Props): React.ReactNode => {
             />
 
             {!!loginInfo.powerdown && (
-              <p className="text-tiny text-justify">
+              <p className="text-[0.8em] text-justify mt-2">
                 {`You're currently powering down ${vestToSteem(
                   loginInfo.powerdown,
                   globalData.steem_per_share
@@ -176,7 +181,7 @@ const PowerDownModal = (props: Props): React.ReactNode => {
             )}
 
             {!!loginInfo.vests_out && (
-              <p className="text-tiny  text-justify">
+              <p className="text-[0.8em] text-justify">
                 {`You're delegating ${vestToSteem(
                   loginInfo.vests_out,
                   globalData.steem_per_share
@@ -193,7 +198,8 @@ const PowerDownModal = (props: Props): React.ReactNode => {
           </div>
 
           <Checkbox
-            size="sm"
+            className="mt-4"
+            size="md"
             isSelected={confirmCheck}
             isDisabled={withdrawMutation.isPending}
             onValueChange={setConfirmCheck}
@@ -211,7 +217,7 @@ const PowerDownModal = (props: Props): React.ReactNode => {
 
           <div className=" flex flex-row items-center gap-2">
             <Button
-              size="sm"
+              size="md"
               color="danger"
               variant="light"
               onPress={onClose}
@@ -221,7 +227,7 @@ const PowerDownModal = (props: Props): React.ReactNode => {
             </Button>
 
             <Button
-              size="sm"
+              size="md"
               color="primary"
               onPress={() => handleWithdraw()}
               isLoading={withdrawMutation.isPending}

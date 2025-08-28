@@ -13,7 +13,7 @@ import MemoLogin from "./authType/MemoLogin";
 import KeyLogin from "./authType/KeyLogin";
 import UnlockAcccount from "./authType/UnlockAccount";
 import SModal from "../ui/SModal";
-import ActiveKeyAuth from "./authType/ActiveKeyAuth";
+import PrivateKeyAuth from "./authType/PrivateKeyAuth";
 
 interface Props {
   isOpen: boolean;
@@ -23,6 +23,7 @@ interface Props {
   addMemo?: boolean;
   requestActive?: boolean;
   onActiveSuccess?: (key: string) => void;
+  keyType: Keys;
 }
 
 export default function AuthModal(props: Props) {
@@ -35,6 +36,7 @@ export default function AuthModal(props: Props) {
     addMemo,
     requestActive,
     onActiveSuccess,
+    keyType,
   } = props;
   const loginInfo = useAppSelector((state) => state.loginReducer.value);
   const [credentials, setCredentials] = useState(getCredentials());
@@ -169,7 +171,8 @@ export default function AuthModal(props: Props) {
               onLoginSuccess={onLoginSuccess}
             />
           ) : requestActive ? (
-            <ActiveKeyAuth
+            <PrivateKeyAuth
+              type={keyType}
               onClose={onClose}
               onActiveSuccess={onActiveSuccess}
             />

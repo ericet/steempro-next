@@ -5,6 +5,9 @@ import SAvatar from "./ui/SAvatar";
 import WitnessVotersModal from "./WitnessVotersModal";
 import { useSession } from "next-auth/react";
 import { useTranslation } from "@/utils/i18n";
+import moment from "moment";
+import { FiAlertTriangle } from "react-icons/fi";
+import { Button } from "@heroui/button";
 
 interface Props {
   witness: MergedWitness;
@@ -16,6 +19,15 @@ function WitnessItemCard(props: Props) {
   const { data: session } = useSession();
   const { t } = useTranslation();
   const isOwn = witness.name === session?.user?.name;
+
+  const isOldFeed = (time: number) => {
+    const diffHours = moment().diff(time * 1000, "h");
+    return diffHours > 2.5;
+  };
+
+  const oldFeed =
+    witness.last_price_report && isOldFeed(witness.last_price_report);
+
   return (
     <div className="flex flex-col gap-2">
       <div className="flex flex-row items-start gap-4 mb-1 sm:mb-2">
@@ -43,7 +55,7 @@ function WitnessItemCard(props: Props) {
         {(witness.voted ||
           witness.isDisabledByKey ||
           witness.hasInvalidVersion) && (
-          <div className="flex flex-row gap-2 flex-wrap">
+          <div className="flex flex-row gap-2 flex-wrap items-center">
             {witness.voted && (
               <Chip
                 variant="flat"
@@ -75,7 +87,27 @@ function WitnessItemCard(props: Props) {
                   variant="flat"
                   className="text-orange-500 border-orange-500/30 text-xs"
                 >
-                  {t("witnesses.invalid_version")}
+                  <div className="flex flex-row items-center gap-1">
+                    <FiAlertTriangle size={14} />
+                    <p>Invalid Version</p>
+                  </div>
+                </Chip>
+              </>
+            )}
+
+            {oldFeed && (
+              <>
+                <Chip
+                  size="sm"
+                  color="warning"
+                  variant="flat"
+                  className=" text-xs"
+                >
+                  <div className="flex flex-row items-center gap-1">
+                    <FiAlertTriangle size={14} />
+
+                    <p>Price Outdated</p>
+                  </div>
                 </Chip>
               </>
             )}

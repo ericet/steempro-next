@@ -173,12 +173,12 @@ export default function BalanceTab({
             actionContent={
               isSelf && (
                 <DropdownMenu aria-labelledby={`steem`} onAction={handleAction}>
-                  <DropdownItem key="transfer-steem">Transfer</DropdownItem>
+                  <DropdownItem key="transfer-steem">{t("wallet.transfer")}</DropdownItem>
                   <DropdownItem key="savings-steem">
-                    Transfer to Savings
+                    {t("wallet.transfer_to_savings")}
                   </DropdownItem>
                   <DropdownItem key="power-up">Power Up</DropdownItem>
-                  <DropdownItem key="trade">Trade</DropdownItem>
+                  <DropdownItem key="trade">{t("wallet.trade")}</DropdownItem>
                 </DropdownMenu>
               )
             }

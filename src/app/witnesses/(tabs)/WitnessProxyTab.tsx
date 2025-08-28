@@ -100,21 +100,21 @@ function WitnessProxyTab(props: Props) {
           isDisabled={mutation.isPending || isOpen}
         />
 
-        <div className="bg-blue-900/20 p-3 sm:p-4">
-          <p className="flex flex-row items-center gap-2 text-blue-500 mb-2 text-sm sm:text-base font-semibold">
+        <div className="warning p-3 sm:p-4">
+          <p className="flex flex-row items-center gap-2 mb-2 text-sm sm:text-base font-semibold">
             <BsFillInfoCircleFill /> {t("witnesses.about_proxy_voting")}:
           </p>
-          <ul className="text-xs sm:text-sm text-blue-500 space-y-1">
-            <li>• {t("witnesses.proxy_info_1")}</li>
-            <li>• {t("witnesses.proxy_info_2")}</li>
+          <ul className="prose-sm" style={{ listStyleType: "disc", paddingLeft: "20px" }}>
+            <li>{t("witnesses.proxy_info_1")}</li>
+            <li>{t("witnesses.proxy_info_2")}</li>
             <li>
-              • {t("witnesses.proxy_info_3")}
+            {t("witnesses.proxy_info_3")}
             </li>
             <li>
-              • {t("witnesses.proxy_info_4")}
+            {t("witnesses.proxy_info_4")}
             </li>
             <li>
-              • {t("witnesses.proxy_info_5")}
+            {t("witnesses.proxy_info_5")}
             </li>
           </ul>
         </div>
@@ -129,7 +129,7 @@ function WitnessProxyTab(props: Props) {
               variant={currentProxy ? "flat" : "bordered"}
               className={
                 currentProxy
-                  ? "bg-steem text-white"
+                  ? "bg-primary-500 text-white"
                   : "text-default-500 border-gray-400"
               }
             >

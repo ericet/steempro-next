@@ -274,7 +274,7 @@ export const SearchModal = (props: Props) => {
         </>
       )}
       footer={(onClose) => (
-        <Button color="danger" variant="flat" onPress={onClose} size="sm">
+        <Button color="danger" variant="flat" onPress={onClose}>
           {t('common.cancel')}
         </Button>
       )}
