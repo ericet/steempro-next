@@ -610,7 +610,7 @@ const TransferModal = (props: TransferModalProps) => {
               isDisabled={isPending}
               onValueChange={setConfirmCheck}
             >
-              Confirm{" "}
+              {t("wallet.confirm")}{" "}
               {powewrup
                 ? "Power Up"
                 : isRemove

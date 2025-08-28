@@ -453,7 +453,8 @@
     "voting_on": "voting on",
     "unrecognized_operation": "Unrecognized operation",
     "operation_error": "Raw operation data available below",
-    "and": "and"
+    "and": "and",
+    "confirm": "Confirm"
   },
   "moderation": {
     "mute": "Mute",

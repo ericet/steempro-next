@@ -451,7 +451,8 @@
     "voting_on": "投票于",
     "unrecognized_operation": "未识别的操作",
     "operation_error": "原始操作数据如下",
-    "and": "和"
+    "and": "和",
+    "confirm": "确认"
   },
   "moderation": {
     "mute": "禁言",
